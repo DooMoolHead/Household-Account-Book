@@ -250,6 +250,9 @@ footer.src ul { margin: 6px 0 0; padding-left: 18px; }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ev{filter:brightness(.85) saturate(1.1)}}
 :root[data-theme="dark"] .ev{filter:brightness(.85) saturate(1.1)}
 @media (max-width:480px){.cal-d{min-height:64px;padding:3px}.ev{font-size:10px;padding:1px 3px}}
+details.ref>summary{cursor:pointer;font-weight:700;font-size:16px;list-style-position:inside}
+details.ref[open]>summary{margin-bottom:12px}
+details.ref .block{box-shadow:none}
 </style>
 </head>
 <body>
@@ -312,8 +315,8 @@ footer.src ul { margin: 6px 0 0; padding-left: 18px; }
 </section>
 
 <!-- 체크리스트 -->
-<section class="panel" id="p-checklist" data-title="체크리스트">
-  <h2>체크리스트</h2>
+<section class="panel" id="p-checklist" data-title="할 일·일정">
+  <h2>할 일·일정</h2>
   <p class="lead">잔금일(2027년 1월 29일)까지 언제까지 무엇을 끝내야 하는지 기한별로 정리했습니다. 남은 일수는 오늘 날짜 기준으로 자동 계산되고, 체크한 항목은 이 브라우저에 저장됩니다.</p>
   <div class="block cl-sum"><div><span class="k">전체 진행</span><b class="num" id="clDone">0 / 0</b></div><div class="bar"><i id="clBar"></i></div></div>
   <div class="block cl-g" data-due="2026-11-20">
@@ -364,6 +367,7 @@ footer.src ul { margin: 6px 0 0; padding-left: 18px; }
   <div class="block cl-g" data-due="2027-01-28">
     <h3 class="cl-h"><span>1/28 (목)까지 · 잔금 전날</span><span class="cl-meta"><span class="chip todo">잔금 D-1</span><span class="chip cl-left"></span></span></h3>
     <label class="ck"><input type="checkbox" data-ck="cl5_27"><span>신용대출 8,100만원·지인 3,000만원 입금 확인, IBK 상환 금액(1억+이자) 확인, 인테리어 보양재 준비</span></label>
+    <label class="ck"><input type="checkbox" data-ck="mg6"><span><span class="chip todo">공사 3일 전</span> <b>공사 안내문 게시.</b> 관리사무소 직인을 받아 엘리베이터와 1층 게시판에 붙입니다. 공사 기간, 소음 작업 날짜·시간, 연락처를 적습니다 <small style="color:var(--muted,#888)">· 본인</small></span></label>
     <label class="ck"><input type="checkbox" data-ck="cl5_28"><span>잔금 이체 한도, 신분증·도장 등 서류 준비</span></label>
   </div>
   <div class="block cl-g" data-due="2027-01-29">
@@ -376,23 +380,79 @@ footer.src ul { margin: 6px 0 0; padding-left: 18px; }
     </div>
     <ol class="tl" id="tl"></ol>
     <div class="warnbox">전세대출은 취득일 당일 상환해야 합니다. 신용대출·지인 자금은 1/28까지 받아 두고, 회사 법무사 방문 시각과 IBK 상환 시각을 전날 각각 확인하세요.</div>
+    <label class="ck"><input type="checkbox" data-ck="mg5s"><span><span class="chip todo">1/29 잔금일</span> <b>소유자 서류 보완.</b> 잔금 전 사전 접수를 받아 준 경우 매매계약서·등기 접수증으로 보완하고 공사 허가증을 받습니다 <small style="color:var(--muted,#888)">· 본인</small></span></label>
     <label class="ck"><input type="checkbox" data-ck="mg5"><span>1/29 실행 가능 시각(마감)과, 대출금이 매도인에게 바로 가는지 법무사를 거치는지</span></label>
   </div>
   <div class="block cl-g" data-due="2027-02-11">
-    <h3 class="cl-h"><span>2/11 (목)까지 · 공사·입주 (이사·공사 탭 일정표)</span><span class="cl-meta"><span class="chip todo">잔금 D+13</span><span class="chip cl-left"></span></span></h3>
+    <h3 class="cl-h"><span>1/29 ~ 2/11 · 공사·입주 (인테리어 탭 달력 참고)</span><span class="cl-meta"><span class="chip todo">잔금 D+13</span><span class="chip cl-left"></span></span></h3>
     <label class="ck"><input type="checkbox" data-ck="cl7_33"><span>1/29 오후 승강기·공용부 보양 설치(직접 준비) + 김현준 줄눈타일(욕실 2곳)</span></label>
     <label class="ck"><input type="checkbox" data-ck="cl7_x5"><span>2/1 목공·전기·조명 1차: 주방 앞 우물 매립, 타공·배선, 센서, 실링팬 보강목·상시 전원. 줄눈 부위 비닐 보양</span></label>
     <label class="ck"><input type="checkbox" data-ck="cl7_34"><span>2/2~2/3 필름(주방·팬트리장·주방 창 샷시 S245, 신발장·현관문·아트월·안방 화장대·드레스룸 문 PX450-4, 나머지 PS101)</span></label>
     <label class="ck"><input type="checkbox" data-ck="cl7_35"><span>2/4~2/5 도배(거실·복도 먼저, 둘째 날 방), 끝나면 들뜸·이음새 점검</span></label>
     <label class="ck"><input type="checkbox" data-ck="cl7_x3"><span>2/5 오후 조명 마무리(등기구·스위치·T5 간접등·실링팬·센서), 도배 끝난 구역부터</span></label>
+    <p class="note" style="margin:4px 0">2/6(토)~2/9(화) 설 연휴: 공사 없음, 도배·줄눈이 마르는 시간</p>
     <label class="ck"><input type="checkbox" data-ck="cl7_36"><span>2/10 입주청소(빈집, 다른 작업 없음), 스탠드 에어컨 빌라에서 철거(펌프다운)</span></label>
     <label class="ck"><input type="checkbox" data-ck="cl7_37"><span>2/11 빌라 퇴거 + 새집 입주, 이사 중 에어컨 2in1 설치, 가전 배송, 보증금 받아 신용대출·지인 상환</span></label>
+    <label class="ck"><input type="checkbox" data-ck="mg8"><span><span class="chip todo">공사 기간</span> <b>공정마다 보양 상태 확인.</b> 업체가 바뀔 때마다 찢어진 곳을 보수하게 하고, 첫날 엘리베이터 상태를 사진으로 남겨 두면 훼손 책임 다툼을 막을 수 있습니다 <small style="color:var(--muted,#888)">· 본인</small></span></label>
+    <label class="ck"><input type="checkbox" data-ck="mg9"><span><span class="chip todo">입주 이삿날</span> <b>이사 승강기 사용.</b> 이사업체는 보통 당일 보양을 직접 합니다. 공사 보양이 남아 있으면 이어서 쓰고, 이사가 끝나면 철거합니다 <small style="color:var(--muted,#888)">· 이사업체</small></span></label>
+      <label class="ck"><input type="checkbox" data-ck="c4"><span>전입신고(취득 당일), 도시가스·전기·인터넷 이전 신청</span></label>
   </div>
   <div class="block cl-g" data-due="2027-04-29">
     <h3 class="cl-h"><span>4/29 (목)까지 · 입주 후</span><span class="cl-meta"><span class="chip todo">잔금 D+90</span><span class="chip cl-left"></span></span></h3>
     <label class="ck"><input type="checkbox" data-ck="cl8_38"><span>잔금 후 1개월 안(2/28까지) 전입·실거주(회사 대출 조건), 3개월 안 전입(생애최초 감면 조건)</span></label>
     <label class="ck"><input type="checkbox" data-ck="cl8_39"><span>3~4월 특별성과급(삼성전자 주식) 수령 후 자금 계산기에 반영</span></label>
+    <label class="ck"><input type="checkbox" data-ck="mg10"><span><span class="chip todo">입주 후</span> <b>완료 신고와 예치금 환급.</b> 보양 철거, 안내문 제거, 관리사무소 공용부 점검을 받은 뒤 예치금을 돌려받습니다 <small style="color:var(--muted,#888)">· 본인</small></span></label>
   </div>
+  <div class="block">
+    <h3>위험 요소와 대응</h3>
+    <div class="scroll"><table>
+      <thead><tr><th>위험</th><th>수준</th><th>대응</th></tr></thead>
+      <tbody>
+        <tr><td>신고 기한 1/26(잔금 전)</td><td><span class="chip bad">높음</span></td><td>소유자 전이라 접수가 안 되면 줄눈을 2/5로 옮기고 신고는 1/29에 냅니다</td></tr>
+        <tr><td>동의서 40세대</td><td><span class="chip bad">높음</span></td><td>1월 두 주말 저녁에 돌기. 양옆·위아래 3개 층은 필수라 먼저</td></tr>
+        <tr><td>필름 2일</td><td><span class="chip ask">중간</span></td><td>3일 분량이라 인원 2명 이상 투입 조건으로 예약</td></tr>
+        <tr><td>도배·조명 같은 날(2/5)</td><td><span class="chip ask">중간</span></td><td>도배 첫날 거실·복도를 끝내고, 조명은 2/5 오후 2~3시 이후</td></tr>
+        <tr><td>1/29 자금 흐름</td><td><span class="chip ask">중간</span></td><td>신용대출·지인 자금 1/28 입금, 회사 법무사 방문·IBK 상환 시각 전날 확인</td></tr>
+        <tr><td>2/11 보증금 반환</td><td><span class="chip ask">중간</span></td><td>만기(2/15)보다 4일 빠름. 늦어지면 신용대출·지인 상환만 미뤄짐</td></tr>
+        <tr><td>생애최초 감면 조건</td><td><span class="chip ok">낮음</span></td><td>2/11 입주면 3개월 내 전입·거주 조건을 충족합니다</td></tr>
+      </tbody>
+    </table></div>
+    <h3 style="margin-top:16px">B안: 일정이 밀릴 때</h3>
+    <p style="margin:0">공정이 하루 밀리면 연휴 뒤 2/10 하루를 도배·조명 보수에 쓰고, 입주청소 2/11, 입주 2/12(금)로 하루씩 미룹니다. 빌라에 계속 사는 중이라 숙소 부담은 없습니다.</p>
+  </div>
+  <details class="block ref">
+    <summary>참고: 승강기 보양 · 사용료 · 이사 운반 조건</summary>
+    <div class="grid2">
+      <div class="block">
+        <h3>승강기 보양, 셀프 vs 업체</h3>
+        <div class="scroll"><table>
+          <thead><tr><th style="min-width:120px">방식</th><th class="r" style="white-space:nowrap">비용(예상)</th><th style="min-width:200px">특징</th></tr></thead>
+          <tbody>
+            <tr><td>관리사무소 지정·자체 보양</td><td class="num r" style="white-space:nowrap">단지 규정</td><td>보양을 관리사무소가 직접 하거나 업체를 지정하는 단지가 있습니다. 이 경우 다른 방식은 안 됩니다</td></tr>
+            <tr><td>보양 전문 업체</td><td class="num r" style="white-space:nowrap">200,000~300,000원</td><td>공사 기간 내내 유지·보수까지 맡김. 훼손 시 책임 주체가 분명합니다</td></tr>
+            <tr><td>시공 업체에 포함</td><td class="num r" style="white-space:nowrap">0~100,000원</td><td>첫 공정 업체(목공·전기)가 설치하고 마지막 공정까지 유지하는 조건으로 견적에 넣어 달라고 요청</td></tr>
+            <tr><td>셀프</td><td class="num r" style="white-space:nowrap">자재비만</td><td>플라베니아(골판지 PP 보드)와 보양 테이프로 직접 설치. 허용하는 단지에서만 가능하고 훼손 책임이 모두 본인에게 옵니다</td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">관리사무소 답: 인테리어 보양은 <b>알아서</b>(지정 업체 없음). 1/29에 직접 설치하거나 목공·전기 업체 견적에 포함해 달라고 하세요. 첫날 엘리베이터 상태를 사진으로 남겨 두세요.</p>
+      </div>
+      <div class="block">
+        <h3>승강기 사용료 (관리사무소 확인)</h3>
+        <div class="scroll"><table>
+          <thead><tr><th style="min-width:150px">구분</th><th class="r" style="white-space:nowrap">금액</th></tr></thead>
+          <tbody>
+            <tr><td>인테리어 공사(기간 무관 1회)</td><td class="num r" style="white-space:nowrap">50,000원</td></tr>
+            <tr><td>입주 이사(1회, 보양재 대여)</td><td class="num r" style="white-space:nowrap">50,000원</td></tr>
+            <tr><td><b>합계</b></td><td class="num r" style="white-space:nowrap"><b>100,000원</b></td></tr>
+          </tbody>
+        </table></div>
+        <p class="note">단일 요금이라 공사 기간이 연휴를 끼어도 추가 요금이 없습니다. 인테리어 보양재는 직접 준비해서 1/29~2/5 유지합니다.</div>
+    </div>
+    <div class="block">
+      <h3>이사 운반 조건</h3>
+      <p style="margin:0">이 동은 조경구역이라 사다리차를 쓸 수 없습니다. 승강기 사용료는 50,000원이고, 전입·전출이 겹치면 먼저 예약한 세대가 우선입니다. 이사업체 견적을 받을 때 이 조건을 먼저 알리세요.</p>
+    </div>
+  </details>
 </section>
 
 <!-- 자금 계산기 -->
@@ -532,7 +592,7 @@ footer.src ul { margin: 6px 0 0; padding-left: 18px; }
     <h3>공사 일정 달력 (2027년 1/24 ~ 2/13)</h3>
     <div class="cal"><div class="cal-w we">일</div><div class="cal-w">월</div><div class="cal-w">화</div><div class="cal-w">수</div><div class="cal-w">목</div><div class="cal-w">금</div><div class="cal-w we">토</div><div class="cal-d we"><span class="cal-n">1/24</span><span class="cal-h">공사 불가</span></div><div class="cal-d"><span class="cal-n">25</span></div><div class="cal-d"><span class="cal-n">26</span></div><div class="cal-d"><span class="cal-n">27</span></div><div class="cal-d"><span class="cal-n">28</span></div><div class="cal-d"><span class="cal-n">29</span><span class="ev ev-g">줄눈</span><span class="ev ev-p">보양</span></div><div class="cal-d we"><span class="cal-n">30</span><span class="cal-h">공사 불가</span></div><div class="cal-d we"><span class="cal-n">31</span><span class="cal-h">공사 불가</span></div><div class="cal-d"><span class="cal-n">2/1</span><span class="ev ev-w">목공·전기·조명</span></div><div class="cal-d"><span class="cal-n">2</span><span class="ev ev-f">필름</span></div><div class="cal-d"><span class="cal-n">3</span><span class="ev ev-f">필름</span></div><div class="cal-d"><span class="cal-n">4</span><span class="ev ev-d">도배</span></div><div class="cal-d"><span class="cal-n">5</span><span class="ev ev-d">도배</span><span class="ev ev-w">조명 마감</span></div><div class="cal-d we hol"><span class="cal-n">6</span><span class="cal-h">설 연휴</span></div><div class="cal-d we hol"><span class="cal-n">7</span><span class="cal-h">설날</span></div><div class="cal-d hol"><span class="cal-n">8</span><span class="cal-h">설 연휴</span></div><div class="cal-d hol"><span class="cal-n">9</span><span class="cal-h">대체공휴일</span></div><div class="cal-d"><span class="cal-n">10</span><span class="ev ev-c">입주청소</span></div><div class="cal-d"><span class="cal-n">11</span><span class="ev ev-m">이사</span><span class="ev ev-m">에어컨·가전</span></div><div class="cal-d"><span class="cal-n">12</span></div><div class="cal-d we"><span class="cal-n">13</span><span class="cal-h">공사 불가</span></div></div>
     <p class="cal-lg"><span class="ev ev-g">줄눈</span><span class="ev ev-p">보양</span><span class="ev ev-w">목공·전기·조명</span><span class="ev ev-f">필름</span><span class="ev ev-d">도배</span><span class="ev ev-c">입주청소</span><span class="ev ev-m">이사</span></p>
-    <p class="note">1/29 잔금 오후부터 공사를 시작하고, 주말과 설 연휴(2/6~2/9)에는 공사하지 않습니다. 자세한 순서는 이사·공사 탭에 있습니다.</p>
+    <p class="note">1/29 잔금 오후부터 공사를 시작하고, 주말과 설 연휴(2/6~2/9)에는 공사하지 않습니다. 날짜별 할 일은 할 일·일정 탭에 있습니다.</p>
   </div>
   <div class="block">
     <h3>조명 · 전기 · 목공 업체 전달 자료 (3장)</h3>
@@ -576,126 +636,7 @@ footer.src ul { margin: 6px 0 0; padding-left: 18px; }
     </div>
 
 
-</section>
-
-<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="이미지 크게 보기">
-  <div class="lb-top"><span class="lb-cap" id="lbCap"></span><button type="button" class="lb-btn" id="lbClose">닫기</button></div>
-  <div class="lb-stage" id="lbStage"><img id="lbImg" alt=""></div>
-  <div class="lb-sw" id="lbSw"></div>
-  <p class="lb-hint">이미지를 누르면 원본 크기로 확대, 다시 누르면 화면에 맞춤</p>
-</div>
-<!-- 이사·공사 -->
-<section class="panel" id="p-moving" data-title="이사·공사">
-  <h2>이사와 공사</h2>
-  <p class="lead">보관이사 없이 빌라에 계속 살면서 평일에만 공사하고(주말 공사 불가), 설 연휴 뒤 2/11에 입주합니다.</p>
-  <div class="block">
-    <h3>공사·입주 일정표 (확정안, 평일만)</h3>
-    <div class="scroll"><table>
-      <thead><tr><th>날짜</th><th>작업</th><th>메모</th></tr></thead>
-      <tbody>
-        <tr><td class="mono">11/17</td><td>회사 대출 신청서류 접수 완료(심사 2~4주, 승인 1/15까지)</td><td>완료</td></tr>
-        <tr><td class="mono">12월 중순</td><td>업체 예약 확정(줄눈·목공·필름·도배·조명·청소), 벽지·필름 품번 주문, 등기구 발주, 포장이사·에어컨 설치 예약</td><td>설 연휴(2/6~2/9) 앞뒤라 업체 일정이 빨리 찹니다</td></tr>
-        <tr><td class="mono">1/16~1/24</td><td>입주민 동의서 받기(80세대 중 40세대 이상, 양옆·위아래 3개 층 필수)</td><td>주말 저녁에 2~3번 돌아야 채워짐</td></tr>
-        <tr><td class="mono">1/26 (화)</td><td>공사 신고서 + 동의서 제출</td><td>첫 공사(1/29) 3일 전까지. 잔금 전 접수 가능 여부 확인</td></tr>
-        <tr><td class="mono">1/28 (목)</td><td>신용대출 8,100만원·지인 3,000만원 입금, 보양재 준비</td><td></td></tr>
-        <tr class="hl"><td class="mono">1/29 (금)</td><td>오전 IBK 전세대출 상환, 회사 대출 실행(회사 법무사)·잔금·등기, 열쇠 수령. 오후 승강기·공용부 보양 설치 + 김현준 줄눈타일(욕실 2곳)</td><td>열쇠를 오전에 받아야 오후 줄눈 가능</td></tr>
-        <tr><td class="mono">2/1 (월)</td><td>목공·전기·조명 1차(주방 앞 우물 매립, 다운라이트 타공·배선, 센서, 실링팬 보강)</td><td>소음 작업. 줄눈 부위는 비닐로 보양, 저녁에 먼지 정리</td></tr>
-        <tr><td class="mono">2/2 (화) ~ 2/3 (수)</td><td>필름 2일(주방·팬트리장·주방 창 샷시 S245, 신발장·현관문·아트월·안방 화장대·드레스룸 문 PX450-4, 나머지 PS101)</td><td>원래 3일 견적이라 인원 추가 여부 확인</td></tr>
-        <tr><td class="mono">2/4 (목) ~ 2/5 (금)</td><td>도배 2일(거실·복도·현관 디아망 회벽, 안방·서재 로하스). 2/5 오후 조명 마무리</td><td>첫날 거실·복도, 둘째 날 방. 조명은 도배 끝난 구역부터</td></tr>
-        <tr><td class="mono">2/6 ~ 2/9</td><td>설 연휴(공사 없음)</td><td>도배·줄눈이 마를 시간</td></tr>
-        <tr><td class="mono">2/10 (수)</td><td>입주청소(빈집). 빌라 스탠드 에어컨 철거</td><td>청소 당일 다른 작업 없음</td></tr>
-        <tr class="hl"><td class="mono">2/11 (목)</td><td>빌라 퇴거 + 새집 입주, 이사 중 에어컨 2in1 설치, 가전 배송, 보증금 1.2억 받아 신용대출·지인 상환, 전입신고</td><td>승강기 1회 50,000원(보양재 대여). 실외기 먼저 넣어 두기</td></tr>
-      </tbody>
-    </table></div>
-    <p class="note">조명은 1차(도배 전 배선·타공)와 마무리(도배 뒤 등기구)로 나눴습니다. 줄눈은 청소 전이면 되므로 잔금일 오후에 먼저 하고, 연휴 동안 충분히 마릅니다.</p>
-  </div>
-  <div class="block">
-    <h3>위험 요소와 대응</h3>
-    <div class="scroll"><table>
-      <thead><tr><th>위험</th><th>수준</th><th>대응</th></tr></thead>
-      <tbody>
-        <tr><td>신고 기한 1/26(잔금 전)</td><td><span class="chip bad">높음</span></td><td>소유자 전이라 접수가 안 되면 줄눈을 2/5로 옮기고 신고는 1/29에 냅니다</td></tr>
-        <tr><td>동의서 40세대</td><td><span class="chip bad">높음</span></td><td>1월 두 주말 저녁에 돌기. 양옆·위아래 3개 층은 필수라 먼저</td></tr>
-        <tr><td>필름 2일</td><td><span class="chip ask">중간</span></td><td>3일 분량이라 인원 2명 이상 투입 조건으로 예약</td></tr>
-        <tr><td>도배·조명 같은 날(2/5)</td><td><span class="chip ask">중간</span></td><td>도배 첫날 거실·복도를 끝내고, 조명은 2/5 오후 2~3시 이후</td></tr>
-        <tr><td>1/29 자금 흐름</td><td><span class="chip ask">중간</span></td><td>신용대출·지인 자금 1/28 입금, 회사 법무사 방문·IBK 상환 시각 전날 확인</td></tr>
-        <tr><td>2/11 보증금 반환</td><td><span class="chip ask">중간</span></td><td>만기(2/15)보다 4일 빠름. 늦어지면 신용대출·지인 상환만 미뤄짐</td></tr>
-        <tr><td>생애최초 감면 조건</td><td><span class="chip ok">낮음</span></td><td>2/11 입주면 3개월 내 전입·거주 조건을 충족합니다</td></tr>
-      </tbody>
-    </table></div>
-    <h3 style="margin-top:16px">B안: 일정이 밀릴 때</h3>
-    <p style="margin:0">공정이 하루 밀리면 연휴 뒤 2/10 하루를 도배·조명 보수에 쓰고, 입주청소 2/11, 입주 2/12(금)로 하루씩 미룹니다. 빌라에 계속 사는 중이라 숙소 부담은 없습니다.</p>
-  </div>
-  <div class="block">
-    <h3>공사 제안 순서</h3>
-    <label class="ck"><input type="checkbox" data-ck="m1"><span>1. 잔금일 오전 IBK 상환·잔금·등기, 오후 보양 설치(1/29)</span></label>
-    <label class="ck"><input type="checkbox" data-ck="m2"><span>2. 김현준 줄눈타일 욕실 2곳(1/29 오후)</span></label>
-    <label class="ck"><input type="checkbox" data-ck="m3"><span>3. 목공·전기·조명 1차: 우물 매립, 타공·배선, 센서, 실링팬 보강(2/1)</span></label>
-    <label class="ck"><input type="checkbox" data-ck="m4"><span>4. 필름 2일(2/2~2/3)</span></label>
-    <label class="ck"><input type="checkbox" data-ck="m5"><span>5. 도배 2일(2/4~2/5)</span></label>
-    <label class="ck"><input type="checkbox" data-ck="m5b"><span>6. 조명 마무리: 다운라이트, T5 간접등, 실링팬, 센서등(2/5 오후)</span></label>
-    <label class="ck"><input type="checkbox" data-ck="m6"><span>7. 입주청소(2/10)</span></label>
-    <label class="ck"><input type="checkbox" data-ck="m9"><span>8. 빌라 퇴거 + 입주, 에어컨 2in1 설치, 가전 배송(2/11)</span></label>
-  </div>
-  <div class="block">
-    <h3>관리사무소 · 동의서 · 승강기, 언제 무엇을</h3>
-    <p class="note" style="margin-top:0"><b>관리사무소 확인(11/16):</b> 동의 80세대 중 50%(양옆·위아래 3개 층 필수), 주말 공사 불가, 신고서·동의서는 공사 3일 전까지, 인테리어 보양은 직접, 이사 보양재는 대여, 승강기 사용료 인테리어 1회·이사 1회 각 50,000원. 업체가 나뉘어 있어서 신고·동의서·보양을 대신 챙겨 줄 메인 업체가 없습니다. 아래 순서대로 직접 챙기거나, 첫 공정 업체(목공·전기)에 맡길 항목을 정해 두세요. 단지마다 규정이 달라 금액과 범위는 관리사무소 답변으로 확정합니다.</p>
-    <label class="ck"><input type="checkbox" data-ck="mg1"><span><span class="chip todo">11월 말까지</span> <b>관리사무소 전화 문의.</b> 아래 문의 문안 그대로. 특히 ① 동의서 범위·비율 ② 주말·공휴일 공사 가능 여부 ③ 공사 기간 승강기 사용료 ④ 보양 방식(지정·업체·셀프) ⑤ 공사 예치금 ⑥ 잔금 전 신청 가능 여부 <small style="color:var(--muted,#888)">· 본인</small></span></label>
-    <label class="ck"><input type="checkbox" data-ck="mg2"><span><span class="chip todo">12월 중순</span> <b>업체 날짜 확정.</b> 동의서와 신고서에 공사 기간·소음 작업 날짜를 적어야 해서 날짜가 먼저 정해져야 합니다. 보양을 맡을 업체도 이때 정합니다 <small style="color:var(--muted,#888)">· 본인</small></span></label>
-    <label class="ck"><input type="checkbox" data-ck="mg3"><span><span class="chip todo">1월 둘째 주 <small>(공사 3주 전)</small></span> <b>입주민 동의서 받기 시작.</b> 보통 위·아래·양옆 세대는 필수이고, 같은 라인 몇 개 층에서 절반 이상을 더 받으라는 단지가 많습니다. 낮에는 부재 세대가 많아 주말 저녁에 2~3번 돌아야 채워집니다. 동의서에 공사 기간과 소음 작업일(타공·우물 매립)을 적습니다 <small style="color:var(--muted,#888)">· 본인 <small>(대행 시 50,000~100,000원)</small></small></span></label>
-    <label class="ck"><input type="checkbox" data-ck="mg4"><span><span class="chip todo">공사 7~10일 전</span> <b>공사 신고서 + 동의서 제출, 승강기 예약.</b> 업체별 사업자등록증 사본·책임자 연락처, 공사 예치금 납부. 승강기는 공사 기간과 입주 이삿날을 함께 예약합니다 <small style="color:var(--muted,#888)">· 본인</small></span></label>
-    <label class="ck"><input type="checkbox" data-ck="mg5"><span><span class="chip todo">1/29 잔금일</span> <b>소유자 서류 보완.</b> 잔금 전 사전 접수를 받아 준 경우 매매계약서·등기 접수증으로 보완하고 공사 허가증을 받습니다 <small style="color:var(--muted,#888)">· 본인</small></span></label>
-    <label class="ck"><input type="checkbox" data-ck="mg6"><span><span class="chip todo">공사 3일 전</span> <b>공사 안내문 게시.</b> 관리사무소 직인을 받아 엘리베이터와 1층 게시판에 붙입니다. 공사 기간, 소음 작업 날짜·시간, 연락처를 적습니다 <small style="color:var(--muted,#888)">· 본인</small></span></label>
-    <label class="ck"><input type="checkbox" data-ck="mg7"><span><span class="chip todo">공사 첫날 아침</span> <b>승강기·공용부 보양 설치.</b> 엘리베이터 내부, 해당 층 엘리베이터 홀과 현관 앞 바닥. 마지막 공정(도배)이 끝날 때까지 그대로 둡니다 <small style="color:var(--muted,#888)">· 목공·전기 업체 또는 보양 업체</small></span></label>
-    <label class="ck"><input type="checkbox" data-ck="mg8"><span><span class="chip todo">공사 기간</span> <b>공정마다 보양 상태 확인.</b> 업체가 바뀔 때마다 찢어진 곳을 보수하게 하고, 첫날 엘리베이터 상태를 사진으로 남겨 두면 훼손 책임 다툼을 막을 수 있습니다 <small style="color:var(--muted,#888)">· 본인</small></span></label>
-    <label class="ck"><input type="checkbox" data-ck="mg9"><span><span class="chip todo">입주 이삿날</span> <b>이사 승강기 사용.</b> 이사업체는 보통 당일 보양을 직접 합니다. 공사 보양이 남아 있으면 이어서 쓰고, 이사가 끝나면 철거합니다 <small style="color:var(--muted,#888)">· 이사업체</small></span></label>
-    <label class="ck"><input type="checkbox" data-ck="mg10"><span><span class="chip todo">입주 후</span> <b>완료 신고와 예치금 환급.</b> 보양 철거, 안내문 제거, 관리사무소 공용부 점검을 받은 뒤 예치금을 돌려받습니다 <small style="color:var(--muted,#888)">· 본인</small></span></label>
-  </div>
-  <div class="grid2">
-    <div class="block">
-      <h3>승강기 보양, 셀프 vs 업체</h3>
-      <div class="scroll"><table>
-        <thead><tr><th style="min-width:120px">방식</th><th class="r" style="white-space:nowrap">비용(예상)</th><th style="min-width:200px">특징</th></tr></thead>
-        <tbody>
-          <tr><td>관리사무소 지정·자체 보양</td><td class="num r" style="white-space:nowrap">단지 규정</td><td>보양을 관리사무소가 직접 하거나 업체를 지정하는 단지가 있습니다. 이 경우 다른 방식은 안 됩니다</td></tr>
-          <tr><td>보양 전문 업체</td><td class="num r" style="white-space:nowrap">200,000~300,000원</td><td>공사 기간 내내 유지·보수까지 맡김. 훼손 시 책임 주체가 분명합니다</td></tr>
-          <tr><td>시공 업체에 포함</td><td class="num r" style="white-space:nowrap">0~100,000원</td><td>첫 공정 업체(목공·전기)가 설치하고 마지막 공정까지 유지하는 조건으로 견적에 넣어 달라고 요청</td></tr>
-          <tr><td>셀프</td><td class="num r" style="white-space:nowrap">자재비만</td><td>플라베니아(골판지 PP 보드)와 보양 테이프로 직접 설치. 허용하는 단지에서만 가능하고 훼손 책임이 모두 본인에게 옵니다</td></tr>
-        </tbody>
-      </table></div>
-      <p class="note">관리사무소 답: 인테리어 보양은 <b>알아서</b>(지정 업체 없음). 1/29에 직접 설치하거나 목공·전기 업체 견적에 포함해 달라고 하세요. 첫날 엘리베이터 상태를 사진으로 남겨 두세요.</p>
-    </div>
-    <div class="block">
-      <h3>승강기 사용료 (관리사무소 확인)</h3>
-      <div class="scroll"><table>
-        <thead><tr><th style="min-width:150px">구분</th><th class="r" style="white-space:nowrap">금액</th></tr></thead>
-        <tbody>
-          <tr><td>인테리어 공사(기간 무관 1회)</td><td class="num r" style="white-space:nowrap">50,000원</td></tr>
-          <tr><td>입주 이사(1회, 보양재 대여)</td><td class="num r" style="white-space:nowrap">50,000원</td></tr>
-          <tr><td><b>합계</b></td><td class="num r" style="white-space:nowrap"><b>100,000원</b></td></tr>
-        </tbody>
-      </table></div>
-      <p class="note">단일 요금이라 공사 기간이 연휴를 끼어도 추가 요금이 없습니다. 인테리어 보양재는 직접 준비해서 1/29~2/5 유지합니다.</div>
-  </div>
-  <div class="block">
-    <h3>관리사무소 문의 문안</h3>
-    <p id="reqText2" style="background:var(--surface-2);border-radius:4px;padding:12px;margin:0;font-size:14px">안녕하세요. [동·호수]를 매수해 2027년 1월 29일 잔금 예정입니다. 입주 전 목공(우물 매립)·전기·조명, 필름, 도배 공사를 1월 말~2월 초에 업체를 나눠 진행할 계획이라 공사 절차를 문의드립니다.<br>· 인테리어 공사 신고서와 입주민 동의서 양식이 있나요? 동의는 어느 세대까지, 몇 % 이상 받아야 하나요?<br>· 잔금 전에는 소유자 확인이 어려운데, 매매계약서로 사전 접수가 가능한가요?<br>· 토요일·일요일과 설 연휴(2/6~2/9) 공사가 가능한가요? 소음 작업(타공) 가능 시간도 알려주세요.<br>· 승강기 사용료는 이사 때만 내나요, 공사 기간에도 내나요? 금액 기준(일수·횟수)이 궁금합니다.<br>· 승강기·공용부 보양은 관리사무소에서 하나요, 지정 업체가 있나요? 시공업체나 본인이 직접 해도 되나요?<br>· 공사 예치금이 있나요? 금액과 환급 시점은요?<br>· 폐기물 반출 방법과 작업 차량 주차는 어떻게 하나요?</p>
-    <div class="btns"><button class="btn" id="btnCopyReq2">문안 복사</button><span class="note" id="copyMsg2" style="align-self:center;margin:0"></span></div>
-  </div>
-  <div class="grid2">
-    <div class="block">
-      <h3>이사 운반 조건</h3>
-      <p style="margin:0">이 동은 조경구역이라 사다리차를 쓸 수 없습니다. 승강기 사용료는 50,000원이고, 전입·전출이 겹치면 먼저 예약한 세대가 우선입니다. 이사업체 견적을 받을 때 이 조건을 먼저 알리세요.</p>
-    </div>
-    <div class="block">
-      <h3>단지 공사 확인</h3>
-      <label class="ck"><input type="checkbox" data-ck="c1"><span>인테리어 공사 신고 절차와 공사 가능 시간</span></label>
-      <label class="ck"><input type="checkbox" data-ck="c2"><span>승강기 보양, 폐기물 배출 방법</span></label>
-      <label class="ck"><input type="checkbox" data-ck="c3"><span>집주인과 2/11 퇴거 날짜 확정</span></label>
-      <label class="ck"><input type="checkbox" data-ck="c4"><span>전입신고(취득 당일), 도시가스·전기·인터넷 이전 신청</span></label>
-    </div>
-  </div>
-  <h2 style="margin-top:28px">가전 설치</h2>
+  <h2 style="margin-top:28px">가전</h2>
   <div class="block">
     <h3>에어컨 2in1 (모델 확정)</h3>
     <div class="scroll"><table>
@@ -752,12 +693,19 @@ footer.src ul { margin: 6px 0 0; padding-left: 18px; }
       <tbody>
         <tr><td>냉장고 RM70F64Q1A<br><small>비스포크 AI 하이브리드 4도어 키친핏 Max 623L(빅아이스/큐브)</small></td><td><span class="chip pick">2,150,000원</span></td><td>912 × 697 × 1,853mm. 냉장고장 폭·높이는 들어가고 깊이(장 680mm)는 본체 깊이 확인 필요(위 검토 참고), 급수관 연결 불필요</td></tr>
         <tr><td>김치냉장고 RQ33HB7411A<br><small>비스포크 김치플러스 3도어 키친핏 313L</small></td><td><span class="chip ask">보류</span><br><small>견적 1,300,000원</small></td><td>695 × 600 × 1,853mm. 다용도실에서 워시타워와 동시 설치 불가, 놓을 위치 재검토 필요</td></tr>
-        <tr><td>에어드레서<br><small>비스포크 AI 에어드레서 대용량 5~9벌 + 주름케어</small></td><td><span class="chip pick">1,499,000원</span></td><td>설치 위치와 전원 확인. 제품 치수는 확인 전</td></tr>
+        <tr><td>에어드레서<br><small>비스포크 AI 에어드레서 대용량 5~9벌 (크리스탈 미러)</small></td><td><span class="chip pick">1,399,000원</span></td><td>설치 위치와 전원 확인. 제품 치수는 확인 전</td></tr>
         <tr><td>식기세척기<br><small>비스포크 카운터탑 6인용(열풍건조)</small></td><td><span class="chip pick">439,000원</span></td><td>설치 가능 확인. 카운터탑이라 주방 상판 위에 놓고, 수전 분기·배수 호스 위치는 로봇청소기 직배수와 함께 계획</td></tr>
       </tbody>
     </table></div>
   </div>
 </section>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="이미지 크게 보기">
+  <div class="lb-top"><span class="lb-cap" id="lbCap"></span><button type="button" class="lb-btn" id="lbClose">닫기</button></div>
+  <div class="lb-stage" id="lbStage"><img id="lbImg" alt=""></div>
+  <div class="lb-sw" id="lbSw"></div>
+  <p class="lb-hint">이미지를 누르면 원본 크기로 확대, 다시 누르면 화면에 맞춤</p>
+</div>
 
 <footer class="src">
   <b>참고한 자료</b>
@@ -1050,7 +998,7 @@ footer.src ul { margin: 6px 0 0; padding-left: 18px; }
   }
 
   /* tabs */
-  var TABS = [['overview', '총정리'], ['checklist', '체크리스트'], ['calc', '자금 계산기'], ['costs', '부대비용'], ['interior', '인테리어'], ['moving', '이사·공사']];
+  var TABS = [['overview', '총정리'], ['checklist', '할 일·일정'], ['calc', '자금 계산기'], ['costs', '부대비용'], ['interior', '인테리어']];
   function buildTabs() {
     var host = document.getElementById('tablist'); var h = '';
     TABS.forEach(function (t) { h += '<button role="tab" id="t-' + t[0] + '" aria-controls="p-' + t[0] + '" data-tab="' + t[0] + '">' + t[1] + '</button>'; });
@@ -1111,7 +1059,6 @@ footer.src ul { margin: 6px 0 0; padding-left: 18px; }
       catch (e) { sel(); done(false); }
     });
   }
-  wireCopy('btnCopyReq2', 'reqText2', 'copyMsg2');
 
 
   (function () {
