@@ -971,7 +971,7 @@ table.fit{font-size:12px}table.fit td,table.fit th{white-space:nowrap;padding-le
   }
 
   /* tabs */
-  var TABS = [['overview', '총정리'], ['checklist', '할 일·일정'], ['calc', '자금 계산기'], ['costs', '부대비용'], ['interior', '인테리어']];
+  var TABS = [['overview', '총정리'], ['calc', '자금 계산기'], ['interior', '인테리어'], ['checklist', '할 일·일정'], ['costs', '부대비용']];
   function buildTabs() {
     var host = document.getElementById('tablist'); var h = '';
     TABS.forEach(function (t) { h += '<button role="tab" id="t-' + t[0] + '" aria-controls="p-' + t[0] + '" data-tab="' + t[0] + '">' + t[1] + '</button>'; });
